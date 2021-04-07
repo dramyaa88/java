@@ -1,0 +1,150 @@
+package javaProject;
+import java.util.*;
+
+import Inheritance.demo.persoanlLoanUI;
+
+public class personalLoanBusinessLogic extends persoanlLoanJavaBean{
+	
+	int inHandSalary,OTP,loanAmount,eligibility,print=0,tenure,doc,principal,rateInPercent = 12,selectMethod,EMI,totalInterestPayable;
+	Scanner sc = new Scanner(System.in);
+	
+	public void welcomePage()
+	{
+		System.out.println("Welcome to avail Personal Loan");
+		System.out.println("-------------------------------");
+		System.out.println("You can avail personal loan for ");
+		System.out.println("1. Medical Emergency ");
+		System.out.println("2. Debt Consolidation ");
+		System.out.println("3. Higher Education" );
+		System.out.println("4. Home Renovation ");
+		System.out.println("5. Used Cars ");
+		System.out.println("6. Wedding ");
+		System.out.println("7. Travel");
+		System.out.println();
+		System.out.println("The maximum loan amount is 200000 and the minimum loan amount is 100000");
+	}
+	
+//	public void OTPgeneration()
+//	{
+//		String regex = "\\d{10}";
+//		Pattern pattern = Pattern.compile(regex);
+//		Matcher matcher = pattern.matcher(getPhoneNo());
+//		try
+//		{
+//			matcher.matches();
+//			System.out.println("OTP is generated and send to your mobile number");
+//			printed = 1;
+//		}catch(InvalidNumber e)
+//		{
+//			System.out.println(e.toString());
+//		}
+//	}
+	
+	public void enterOTP()
+	{
+			System.out.println("OTP is generated and send to your mobile number");
+			System.out.println("Enter the OTP");
+			OTP = sc.nextInt();
+	}
+	
+	public void eligibility() 
+	{
+		if(getCity().equalsIgnoreCase("india"))
+		{
+			//int inHandSalary;
+			System.out.println();
+			
+			if(getAge()>=23 && getAge()<=55)
+			{
+				inHandSalary = getMonthSalary() - getExpenses() ; 
+				if(inHandSalary > 15000)
+				{
+					if(inHandSalary>=15000 && inHandSalary<=30000)
+					{
+						System.out.println("You are eligible to take loan upto 500000");
+					}
+					else if(inHandSalary>30000 && inHandSalary<=60000)
+					{
+						System.out.println("you are eligible to take loan upto 100000");
+					}
+					else
+					{
+						System.out.println("you are eligible to take loan upto 200000");
+					}
+					eligibility = 1;
+					System.out.println("Documents Required");
+					System.out.println("1. Salary Pay \n 2. Aadhaar card \n 3. Pan card \n 4. Photographs ");
+					System.out.println("Please press 1 if you have above documents else 2");
+					doc = sc.nextInt();
+						if(doc == 1)
+						{
+							System.out.println("Proceed Further");
+						}
+						else
+						{
+							throw new documentNeeded();
+						}
+				}
+				else
+				{
+					System.out.println("Your age should lie between 23 and 55 applying pesonal loan");
+				}
+			}
+			else
+			{
+				System.out.println("Your In Hand Salary should be greater that 15000 for applying personal loan");
+			}
+		}
+		else
+		{
+			System.out.println("you should reside in INDIA for applying personal loan");
+		}
+	}
+	
+	public void loanDetails()
+	{
+		if(eligibility == 1)
+		{
+		System.out.println("Enter the loan Amount");
+		loanAmount = sc.nextInt();
+		System.out.println("Enter the tenure in months");
+		tenure = sc.nextInt();
+		principal = (rateInPercent/100)*loanAmount;
+		System.out.println("Select the interest rate method you need ");
+		System.out.println("1. Flat Rate Method");
+		System.out.println("2. Reducing Balance Method");
+		selectMethod = sc.nextInt();
+		
+		if(selectMethod == 1)
+		{
+			totalInterestPayable = (principal*tenure*rateInPercent)/100;
+			EMI = (principal + totalInterestPayable ) / tenure ;
+			print = 1;
+		}
+		else if(selectMethod == 2)
+		{
+			
+			EMI = (principal*rateInPercent*(1+rateInPercent)^tenure)/((1+rateInPercent)^(tenure-1));
+			print = 1;
+			
+		}
+		else
+		{
+			System.out.println("Invalid option");
+		}
+		
+		}
+		
+	}
+	
+	public void endMessage()
+	{
+		if(print == 1)
+		{
+			System.out.println("Your Loan will be Disbursed within 24 hours");
+			System.out.println("Have a nice day");
+		}
+	}
+	
+	
+}
