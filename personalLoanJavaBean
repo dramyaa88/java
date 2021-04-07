@@ -1,0 +1,104 @@
+package javaProject;
+
+import Inheritance.demo.persoanlLoanUI;
+
+public class persoanlLoanJavaBean {
+	@Override
+	public String toString() {
+		return "persoanlLoanJavaBean [name=" + name + ", city=" + city + ", phoneNo=" + phoneNo
+				+ ", panNo=" + panNo + ", age=" + age + ", monthSalary=" + monthSalary + ", expenses=" + expenses + "]";
+	}
+	private String name;
+	private String city;
+	private String phoneNo;
+	public persoanlLoanJavaBean() {
+		
+	}
+	public persoanlLoanJavaBean( String name, String city, String phoneNo, String panNo, int age,
+			int monthSalary, int expenses) {
+		super();
+		
+		this.name = name;
+		this.city = city;
+		this.phoneNo = phoneNo;
+		this.panNo = panNo;
+		this.age = age;
+		this.monthSalary = monthSalary;
+		this.expenses = expenses;
+	}
+	private String panNo;
+	private int age;
+	private int monthSalary;
+	private int expenses;
+	
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getPhoneNo() {
+		return phoneNo;
+	}
+	public void setPhoneNo(String phoneNo) {
+		this.phoneNo = phoneNo;
+//		 String regex = "(0/91)?[7-9][0-9]{9}";
+//		 if(phoneNo.matches(regex)==true);
+//		 {
+//			 printed =1;
+//		 }
+		 
+//			if(String.valueOf(phoneNo).length()==10)
+//		{
+//			this.phoneNo = phoneNo;
+////			printed = 1;
+//		}
+//		else
+//			throw new LengthMismatchException();
+		
+//		catch(LengthMismatchException e)
+//		{
+//			System.out.println(e);
+//		}
+	}
+	public boolean validatePhone() {
+		if(this.phoneNo.length()==10) {
+			return true;
+		}
+		return false;
+	}
+	public String getPanNo() {
+		return panNo;
+	}
+	public void setPanNo(String panNo) {
+		this.panNo = panNo;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public int getMonthSalary() {
+		return monthSalary;
+	}
+	public void setMonthSalary(int monthSalary) {
+		this.monthSalary = monthSalary;
+	}
+	public int getExpenses() {
+		return expenses;
+	}
+	public void setExpenses(int expenses) {
+		this.expenses = expenses;
+	}
+	
+	
+
+}
