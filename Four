@@ -10,7 +10,7 @@ public class Four extends Second {
             System.out.println("Enter the loan Amount");
             Scanner sc = new Scanner(System.in);
             loanAmount = sc.nextInt();
-            principal = loanAmount/100;
+            principal = loanAmount;
             System.out.println("Enter the tenure in months");
             tenure = sc.nextInt();
 //            principal = (rateInPercent / 100) * loanAmount;
