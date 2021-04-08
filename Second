@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Second {
 	
-static int inHandSalary, OTP, eligibility, doc, selectMethod,loanAmount,tenure,rateInPercent = 10,principal,EMI;;
+static int inHandSalary, OTP, eligibility, doc, selectMethod,loanAmount,tenure,rateInPercent = 10,principal,EMI;
 
     public void welcomePage() {
         System.out.println("Welcome to avail Personal Loan");
@@ -50,10 +50,10 @@ static int inHandSalary, OTP, eligibility, doc, selectMethod,loanAmount,tenure,r
                         System.out.println("document  needed");
                     }
                 } else {
-                    System.out.println("Your age should lie between 23 and 55 applying pesonal loan");
+                    System.out.println("Your in hand salary should be greater than 15000");
                 }
             } else {
-                System.out.println("Your In Hand Salary should be greater that 15000 for applying personal loan");
+                System.out.println("Your age should lie between 23 and 55 applying pesonal loan");
             }
         } else {
             System.out.println("you should reside in INDIA for applying personal loan");
